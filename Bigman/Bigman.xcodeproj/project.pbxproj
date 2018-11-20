@@ -12,6 +12,8 @@
 		9F62BDB321A3EC8D0048F5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F62BDB121A3EC8D0048F5DC /* Main.storyboard */; };
 		9F62BDB521A3EC900048F5DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F62BDB421A3EC900048F5DC /* Assets.xcassets */; };
 		9F62BDB821A3EC900048F5DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F62BDB621A3EC900048F5DC /* LaunchScreen.storyboard */; };
+		9F62BDC021A3F3320048F5DC /* BMRecyclableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F62BDBF21A3F3320048F5DC /* BMRecyclableView.swift */; };
+		9F62BDC221A3F67E0048F5DC /* BMViewRecycler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F62BDC121A3F67E0048F5DC /* BMViewRecycler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		9F62BDB421A3EC900048F5DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F62BDB721A3EC900048F5DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F62BDB921A3EC900048F5DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F62BDBF21A3F3320048F5DC /* BMRecyclableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMRecyclableView.swift; sourceTree = "<group>"; };
+		9F62BDC121A3F67E0048F5DC /* BMViewRecycler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMViewRecycler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				9F62BDB421A3EC900048F5DC /* Assets.xcassets */,
 				9F62BDB621A3EC900048F5DC /* LaunchScreen.storyboard */,
 				9F62BDB921A3EC900048F5DC /* Info.plist */,
+				9F62BDBF21A3F3320048F5DC /* BMRecyclableView.swift */,
+				9F62BDC121A3F67E0048F5DC /* BMViewRecycler.swift */,
 			);
 			path = Bigman;
 			sourceTree = "<group>";
@@ -135,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F62BDC021A3F3320048F5DC /* BMRecyclableView.swift in Sources */,
 				9F62BDB021A3EC8D0048F5DC /* ViewController.swift in Sources */,
+				9F62BDC221A3F67E0048F5DC /* BMViewRecycler.swift in Sources */,
 				9F62BDAE21A3EC8D0048F5DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
