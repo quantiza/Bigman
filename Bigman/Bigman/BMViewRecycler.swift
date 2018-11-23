@@ -8,14 +8,16 @@
 
 import UIKit
 
-class BMViewRecycler: NSObject {
+class BMViewRecycler {
     
-    var reuseIdentifiersToRecycledViews:[String: Array<BMRecyclableView>]
+    var reuseIdentifiersToRecycledViews:[String: Array<BMRecyclableView>] = Dictionary()
+    /// life cycle
+    init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(BMViewRecycler.reduceMemoryUsage), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
+    }
     
-    override init() {
-        self.reuseIdentifiersToRecycledViews = Dictionary()
-        super.init()
-        NotificationCenter.default.addObserver(self, selector: #selector(reduceMemoryUsage), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc func reduceMemoryUsage() {
@@ -24,5 +26,33 @@ class BMViewRecycler: NSObject {
     
     public func removeAllView() {
         reuseIdentifiersToRecycledViews.removeAll()
+    }
+    
+    /// public
+    func dequeueReusableViewWithIdentifier(reuseIdentifier:String) -> BMRecyclableView? {
+        var views:[BMRecyclableView]? = reuseIdentifiersToRecycledViews[reuseIdentifier]
+        if let view = views?.last {
+            views?.removeLast()
+            view.prepareForReuse()
+            return view
+        }
+        return nil
+    }
+    
+    func recycleView(view:BMRecyclableView) {
+        var reuseIdentifier:String
+        
+        if let reuseId = view.reuseIdentifier {
+            reuseIdentifier = reuseId
+        } else {
+            reuseIdentifier = NSStringFromClass(type(of: view))
+        }
+        
+        var views:Array? = reuseIdentifiersToRecycledViews[reuseIdentifier]
+        if views == nil {
+            views = Array()
+            reuseIdentifiersToRecycledViews.updateValue(views!, forKey: reuseIdentifier)
+        }
+        views!.append(view)
     }
 }

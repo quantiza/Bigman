@@ -10,15 +10,19 @@ import UIKit
 
 class BMRecyclableView: UIView {
     
-    public var reuseIdentifier:String?
+    var reuseIdentifier:String?
     
-    public init(reuseIdentifier:String?) {
-        super.init(frame: CGRect.zero)
+    init(reuseIdentifier:String?) {
         self.reuseIdentifier = reuseIdentifier
+        super.init(frame: CGRect.zero)
     }
     
     override convenience init(frame: CGRect) {
         self.init(reuseIdentifier: nil)
+    }
+    
+    func prepareForReuse() {
+
     }
     
     required init?(coder aDecoder: NSCoder) {
